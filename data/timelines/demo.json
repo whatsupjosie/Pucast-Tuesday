@@ -1,0 +1,128 @@
+{
+  "name": "Studio Demo",
+  "description": "Automated 2-minute studio demonstration",
+  "duration": 120.0,
+  "loop": false,
+  "version": "1.0",
+  "events": [
+    {
+      "t": 0.0,
+      "type": "lighting",
+      "params": {"preset": "GOLDEN_HOUR"},
+      "label": "Warm up lighting",
+      "critical": false
+    },
+    {
+      "t": 2.0,
+      "type": "camera",
+      "params": {"to": "cam_1", "transition": "cut"},
+      "label": "Wide shot",
+      "critical": false
+    },
+    {
+      "t": 5.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Welcome to PubCast AI! Let me show you around."},
+      "label": "Pete greeting",
+      "critical": true
+    },
+    {
+      "t": 10.0,
+      "type": "camera",
+      "params": {"to": "cam_2", "transition": "dissolve"},
+      "label": "Medium shot",
+      "critical": false
+    },
+    {
+      "t": 15.0,
+      "type": "lighting",
+      "params": {"preset": "STUDIO_PROFESSIONAL"},
+      "label": "Professional lighting",
+      "critical": false
+    },
+    {
+      "t": 20.0,
+      "type": "entrance",
+      "params": {"character": "repete"},
+      "label": "RePete enters",
+      "critical": false
+    },
+    {
+      "t": 25.0,
+      "type": "chat",
+      "params": {"user": "repete", "text": "Hey everyone! Ready to create something amazing?"},
+      "label": "RePete intro",
+      "critical": false
+    },
+    {
+      "t": 30.0,
+      "type": "camera",
+      "params": {"to": "cam_3", "transition": "cut"},
+      "label": "Two-shot",
+      "critical": false
+    },
+    {
+      "t": 40.0,
+      "type": "lighting",
+      "params": {"preset": "DRAMATIC_CONTRAST"},
+      "label": "Add drama",
+      "critical": false
+    },
+    {
+      "t": 50.0,
+      "type": "entrance",
+      "params": {"character": "sirpurfluous"},
+      "label": "Sir Purfluous arrives",
+      "critical": false
+    },
+    {
+      "t": 55.0,
+      "type": "chat",
+      "params": {"user": "sirpurfluous", "text": "Sancho! Let's make this production legendary."},
+      "label": "Sir Purfluous speech",
+      "critical": false
+    },
+    {
+      "t": 60.0,
+      "type": "camera",
+      "params": {"to": "cam_1", "transition": "cut"},
+      "label": "Back to wide",
+      "critical": false
+    },
+    {
+      "t": 70.0,
+      "type": "lighting",
+      "params": {"preset": "CONCERT_STAGE"},
+      "label": "Show lighting",
+      "critical": false
+    },
+    {
+      "t": 90.0,
+      "type": "camera",
+      "params": {"to": "cam_4", "transition": "dissolve"},
+      "label": "Close-up",
+      "critical": false
+    },
+    {
+      "t": 100.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "That's the power of automated production. See you next time!"},
+      "label": "Pete outro",
+      "critical": true
+    },
+    {
+      "t": 110.0,
+      "type": "lighting",
+      "params": {"preset": "FADE_TO_BLACK"},
+      "label": "Fade out",
+      "critical": false
+    },
+    {
+      "t": 120.0,
+      "type": "sequence_end",
+      "params": {},
+      "label": "End",
+      "critical": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Quick Intro",
+  "description": "30-second show introduction",
+  "duration": 30.0,
+  "loop": false,
+  "version": "1.0",
+  "events": [
+    {
+      "t": 0.0,
+      "type": "lighting",
+      "params": {"preset": "FADE_IN"},
+      "label": "Lights up"
+    },
+    {
+      "t": 1.0,
+      "type": "camera",
+      "params": {"to": "cam_1"},
+      "label": "Wide shot"
+    },
+    {
+      "t": 3.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Welcome to PubCast!"},
+      "label": "Pete greeting",
+      "critical": true
+    },
+    {
+      "t": 8.0,
+      "type": "camera",
+      "params": {"to": "cam_2"},
+      "label": "Close-up"
+    },
+    {
+      "t": 12.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Let's get started."},
+      "label": "Pete start cue"
+    },
+    {
+      "t": 25.0,
+      "type": "lighting",
+      "params": {"preset": "STUDIO_PROFESSIONAL"},
+      "label": "Working light"
+    }
+  ]
+}

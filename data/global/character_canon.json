@@ -1,0 +1,30 @@
+{
+  "version": "5.6",
+  "style_note": "Reference images define canonical character form only. Final render style remains Too Much To Bear watercolor pencil sketch with dramatic noir lighting.",
+  "characters": {
+    "pete": {
+      "display_name": "Pete",
+      "visual_ref": "/assets/characters/canon/pete_reference.png",
+      "reference_type": "canonical",
+      "notes": "Pink-haired woman. Locked visual identity for production use."
+    },
+    "repete": {
+      "display_name": "Re-Pete",
+      "visual_ref": "/assets/characters/canon/repete_reference.png",
+      "reference_type": "canonical",
+      "notes": "Redheaded man with beard. Locked visual identity for production use."
+    },
+    "sir_purfluous": {
+      "display_name": "Sir Purfluous",
+      "visual_ref": "/assets/characters/canon/sir_purfluous_reference.png",
+      "reference_type": "canonical",
+      "notes": "Older man. Locked visual identity for production use."
+    },
+    "e_pete": {
+      "display_name": "E-Pete",
+      "visual_ref": null,
+      "reference_type": "non_visual_engine_entity",
+      "notes": "No body. Engine-resident voice/presence only."
+    }
+  }
+}
