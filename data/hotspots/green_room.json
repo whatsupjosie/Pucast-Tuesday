@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "tool": "Level Annotator v1.0",
+    "exported": "2026-04-11T10:00:51.364Z",
+    "imageSize": {
+      "width": 1586,
+      "height": 672
+    }
+  },
+  "hotspots": [
+    {
+      "id": "Green room tv",
+      "position": {
+        "x": 1012,
+        "y": 375
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "animation",
+        "animation": "tv turns on character bends over turns it on flips a channel or two between prerecorded and when availible live chatter and studio happenings"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "door to writers room and theater hall",
+      "position": {
+        "x": 343,
+        "y": 252
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "a menu pops up asking if you want to go to the writers room or theater hall and you select it tand then are transoported there",
+        "spawnPoint": "eith ere the door to green room in either the theater hall or the writers room"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "control room door",
+      "position": {
+        "x": 1477,
+        "y": 297
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "control room",
+        "spawnPoint": "door to green room"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "door to studio",
+      "position": {
+        "x": 954,
+        "y": 220
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "studio wide shot",
+        "spawnPoint": "door to green room"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "door to Dressing room",
+      "position": {
+        "x": 5,
+        "y": 583
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "dressing room",
+        "spawnPoint": "door to green room"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "Door to vortex bar",
+      "position": {
+        "x": 1072,
+        "y": 686
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "vortex bar",
+        "spawnPoint": "door to green rom in vortex bar"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "Sit",
+      "position": {
+        "x": 780,
+        "y": 429
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "animation",
+        "animation": "sit down and watch tv on couch"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "couch",
+      "position": {
+        "x": 684,
+        "y": 513
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "animation",
+        "animation": "sit down and watch tv on couch"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    }
+  ],
+  "depthArrows": [
+    {
+      "from": {
+        "x": 336,
+        "y": 671
+      },
+      "to": {
+        "x": 355,
+        "y": 364
+      }
+    },
+    {
+      "from": {
+        "x": 1179,
+        "y": 651
+      },
+      "to": {
+        "x": 1444,
+        "y": 482
+      }
+    },
+    {
+      "from": {
+        "x": 1486,
+        "y": 501
+      },
+      "to": {
+        "x": 972,
+        "y": 327
+      }
+    }
+  ]
+}

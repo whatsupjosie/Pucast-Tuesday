@@ -1,0 +1,107 @@
+# PubCast AI — .gitignore
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Python bytecode (NEVER commit these — causes import failures across versions)
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ── Local GGUF model files (large binaries — use local paths or separate asset store)
+# Copy model files to the repo root locally but never commit them.
+# See requirements-architect.txt for download/build instructions.
+*.gguf
+*.bin
+*.ggml
+
+# ── Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# ── Environment / secrets (NEVER commit API keys)
+.env
+.env.local
+.env.*.local
+*.env
+
+# ── OS noise
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Test artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ── Build / dist
+dist/
+build/
+*.egg-info/
+*.egg
+
+# ── Logs generated at runtime (keep the data/ directory structure, not its contents)
+data/logs/
+data/recordings/
+data/exports/
+data/imports/
+data/vault/.vault_archive
+data/vault/.vault_container
+data/vault/.vault_shadow
+data/vault/.vault_staging
+
+# ── SQLite databases (runtime state — not source)
+*.db
+data/governance/governance.db
+data/vault/vault.db
+
+# ── Memory snapshots (runtime — regenerated on boot)
+data/memory_snapshot.json
+
+# ── Runtime/private data (do not publish)
+data/alex/
+data/alex_bridge/
+data/black_box/
+data/byok/
+data/dressing_room_security/
+data/emergency_saves/
+data/memory/
+data/projects/*/autosaves/
+data/sessions/
+data/users/
+data/global/performance_profile.json
+data/global/production.json
+*.jsonl
+*.key
+
+# ── Temporary/scratch files
+_tmp_*
+*.tmp
+
+# Private research protocol material.
+# Do not commit Alex Little One implementation/docs/tests to a public PubCast
+# repo unless a sanitized appendix is explicitly approved.
+modules/alex_little_one/
+modules/care_profile.py
+docs/research/alex_little_one/
+HANDOFF_PUBLIC_BABY_ROLE_2026-04-28.md
+tests/alex_little_one/
+tests/test_public_baby_role.py
+ALEX_LITTLE_ONE_PROTOCOL_INDEX.md
+backup_pre_*/
+_source_backup/
