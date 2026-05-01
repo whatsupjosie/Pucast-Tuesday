@@ -1,0 +1,149 @@
+{
+  "name": "Three Host Dialog",
+  "description": "Pete, RePete, and Sir Purfluous discussion",
+  "duration": 90.0,
+  "loop": false,
+  "version": "1.0",
+  "events": [
+    {
+      "t": 0.0,
+      "type": "lighting",
+      "params": {"preset": "DRAMATIC_SIDE"},
+      "label": "Dramatic lighting"
+    },
+    {
+      "t": 0.5,
+      "type": "camera",
+      "params": {"to": "cam_wide", "transition": "fade"},
+      "label": "Wide establishing"
+    },
+    {
+      "t": 2.0,
+      "type": "entrance",
+      "params": {"character": "pete", "from": "stage_left"},
+      "label": "Pete enters"
+    },
+    {
+      "t": 5.0,
+      "type": "camera",
+      "params": {"to": "cam_1"},
+      "label": "Pete close-up"
+    },
+    {
+      "t": 6.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Alright, let's talk about today's production challenges."},
+      "label": "Pete opens",
+      "critical": true
+    },
+    {
+      "t": 12.0,
+      "type": "entrance",
+      "params": {"character": "repete", "from": "stage_right"},
+      "label": "RePete enters"
+    },
+    {
+      "t": 15.0,
+      "type": "camera",
+      "params": {"to": "cam_2"},
+      "label": "RePete shot"
+    },
+    {
+      "t": 16.0,
+      "type": "chat",
+      "params": {"user": "repete", "text": "I've been reviewing the technical specs..."},
+      "label": "RePete responds"
+    },
+    {
+      "t": 22.0,
+      "type": "camera",
+      "params": {"to": "cam_wide"},
+      "label": "Two shot"
+    },
+    {
+      "t": 25.0,
+      "type": "entrance",
+      "params": {"character": "sir_purfluous", "from": "upstage_center"},
+      "label": "Sir Purfluous enters"
+    },
+    {
+      "t": 28.0,
+      "type": "lighting",
+      "params": {"preset": "STAGE_PERFORMANCE"},
+      "label": "Performance lighting"
+    },
+    {
+      "t": 30.0,
+      "type": "camera",
+      "params": {"to": "cam_3"},
+      "label": "Sir Purfluous shot"
+    },
+    {
+      "t": 31.0,
+      "type": "chat",
+      "params": {"user": "sir_purfluous", "text": "Gentlemen! I've been pondering the finer points of our craft..."},
+      "label": "Sir Purfluous enters conversation",
+      "critical": true
+    },
+    {
+      "t": 40.0,
+      "type": "camera",
+      "params": {"to": "cam_wide"},
+      "label": "Three shot"
+    },
+    {
+      "t": 42.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Always the philosopher."},
+      "label": "Pete reacts"
+    },
+    {
+      "t": 48.0,
+      "type": "camera",
+      "params": {"to": "cam_2"},
+      "label": "RePete reaction"
+    },
+    {
+      "t": 50.0,
+      "type": "chat",
+      "params": {"user": "repete", "text": "Actually, I think he has a point about the workflow..."},
+      "label": "RePete agrees"
+    },
+    {
+      "t": 58.0,
+      "type": "camera",
+      "params": {"to": "cam_1"},
+      "label": "Pete considers"
+    },
+    {
+      "t": 60.0,
+      "type": "chat",
+      "params": {"user": "pete", "text": "Fine. Let's try it your way."},
+      "label": "Pete concedes"
+    },
+    {
+      "t": 65.0,
+      "type": "lighting",
+      "params": {"preset": "WARM_INTIMATE"},
+      "label": "Warm up lighting"
+    },
+    {
+      "t": 70.0,
+      "type": "camera",
+      "params": {"to": "cam_wide"},
+      "label": "Final wide"
+    },
+    {
+      "t": 72.0,
+      "type": "chat",
+      "params": {"user": "sir_purfluous", "text": "Splendid! The art of cinema is collaboration, after all."},
+      "label": "Sir Purfluous closes"
+    },
+    {
+      "t": 85.0,
+      "type": "lighting",
+      "params": {"preset": "FADE_OUT"},
+      "label": "Fade to black"
+    }
+  ]
+}

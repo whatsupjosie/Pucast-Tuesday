@@ -1,0 +1,30 @@
+{
+  "session_id": "session-resume",
+  "packets": {
+    "memory-user": {
+      "user_id": "memory-user",
+      "session_id": "session-resume",
+      "project_id": "proj",
+      "room_id": "waiting_room",
+      "alex_state": "guide",
+      "user_battery": "medium",
+      "tone_guidance": "steady",
+      "pace_guidance": "normal",
+      "intervention_style": "light",
+      "fragility_level": 0.1,
+      "care_priority": "low",
+      "do_not_touch": [],
+      "active_threads": [
+        "building"
+      ],
+      "resumed_from_memory": true,
+      "remembered_memory_count": 1,
+      "recent_memory_types": [
+        "identity"
+      ],
+      "display_name": "memory-user",
+      "bridge_scope": "entry",
+      "generated_at": 1777487087.9737773
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "user_id": "memory-user",
+  "current_state": "guide",
+  "user_battery": "medium",
+  "conversation_count": 1,
+  "last_interaction": "2026-04-29T11:24:47.966428",
+  "state_entered_at": "2026-04-29T11:24:47.961587",
+  "saved_at": "2026-04-29T11:24:47.982287",
+  "user_state": {
+    "energy_level": 0.5000007608333333,
+    "stress_level": 0.0,
+    "clarity_score": 1.0,
+    "emotional_tone": "neutral",
+    "typing_speed": 60.0,
+    "time_of_day": "unknown"
+  }
+}

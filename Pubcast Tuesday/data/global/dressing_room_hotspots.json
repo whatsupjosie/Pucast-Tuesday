@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "tool": "Level Annotator v1.0",
+    "exported": "2026-04-11T09:45:52.314Z",
+    "imageSize": {
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "hotspots": [
+    {
+      "id": "Door to Green Room",
+      "position": {
+        "x": 951,
+        "y": 435
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "Green Room",
+        "spawnPoint": "entry from Dressing room"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "Avatar Foundry",
+      "position": {
+        "x": 486,
+        "y": 425
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "transition",
+        "destination": "Avatar foundry platform in the room and avatar maker program",
+        "spawnPoint": "Avatar foundry platform in the room and avatar maker program"
+      },
+      "oneShot": false,
+      "enabledByDefault": true,
+      "notes": "This is where the play activators   the avatar"
+    },
+    {
+      "id": "Message board",
+      "position": {
+        "x": 686,
+        "y": 297
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "custom",
+        "event": "Check message board"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "makeup station",
+      "position": {
+        "x": 167,
+        "y": 425
+      },
+      "radius": 40,
+      "trigger": "auto",
+      "action": {
+        "type": "custom",
+        "event": "hair and makeup"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "typewriter",
+      "position": {
+        "x": 979,
+        "y": 767
+      },
+      "radius": 40,
+      "trigger": "auto",
+      "action": {
+        "type": "custom",
+        "event": "Sitting at your type writer in the first person view typing messages sending them working on scripts of whatever documents you would liek"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "Phone",
+      "position": {
+        "x": 1180,
+        "y": 791
+      },
+      "radius": 40,
+      "trigger": "action",
+      "action": {
+        "type": "custom",
+        "event": "accesses zoom or the internal audio and video meeting software for a quick chat or full meeting from your dressingroom"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "Wardrobe",
+      "position": {
+        "x": 1229,
+        "y": 373
+      },
+      "radius": 40,
+      "trigger": "auto",
+      "action": {
+        "type": "custom",
+        "event": "Clothes maker and clothing closet menue are entered and you can dress your avtar and even create new clothing"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    },
+    {
+      "id": "scripts",
+      "position": {
+        "x": 783,
+        "y": 729
+      },
+      "radius": 40,
+      "trigger": "auto",
+      "action": {
+        "type": "custom",
+        "event": "you can see the list of scripts you have at hand that you compelteedd were provided or sent to you by the game or other users and you can read them and offer conversation comment and advice on them"
+      },
+      "oneShot": false,
+      "enabledByDefault": true
+    }
+  ],
+  "depthArrows": []
+}
