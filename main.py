@@ -82,6 +82,7 @@ from modules import credits_export
 from modules import memory_engine
 from modules.alex_core import AlexCore
 from modules.alex_jeremy_bridge import AlexJeremyBridge
+from modules.session_resurrector import SessionResurrector
 from modules import alex_routes, auth_routes, userdb, auth as auth_module
 from modules.route_security import auth_enforced, current_identity, bound_actor, require_role
 from modules.timeline_routes import register_timeline_handler
@@ -1773,20 +1774,82 @@ async def register_session_user(request: Request, identity: Dict[str, Any] = Dep
         creditable=bool(body.get('creditable', True)),
         care_profile=care_profile,
     )
-    bridge_packet = alex_bridge.build_entry_packet(
+    entry_context = await _alex_entry_context(
         user_id=user_id,
         session_id=session_id,
         project_id=project_id,
         room_id=participant.get('dressing_room_id', 'dressing_room'),
         display_name=display_name,
         metadata=body,
-    ) if alex_bridge else None
-    return {'ok': True, 'participant': participant, 'alex_bridge': bridge_packet, 'jeremy_whisper': alex_bridge.jeremy_whisper(user_id=user_id, session_id=session_id) if alex_bridge else ''}
+    )
+    return {
+        'ok': True,
+        'participant': participant,
+        'alex_bridge': entry_context['packet'],
+        'jeremy_whisper': entry_context['jeremy_whisper'],
+        'session_resurrection': entry_context['resurrection'],
+    }
 
 
 @app.get("/api/session/{session_id}/roster")
 async def session_roster(session_id: str):
     return {'ok': True, 'session_id': session_id, 'participants': session_runtime.get_roster(DATA_DIR, session_id)}
+
+
+async def _alex_entry_context(
+    *,
+    user_id: str,
+    session_id: str,
+    project_id: str,
+    room_id: str,
+    display_name: str = "",
+    metadata: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """Build the Alex/Jeremy entry packet, preferring warm resurrection when available."""
+    if not alex_bridge:
+        return {"packet": None, "jeremy_whisper": "", "resurrection": None}
+
+    try:
+        alex = alex_bridge.alex_for(user_id)
+        resurrector = SessionResurrector(
+            alex=alex,
+            bridge=alex_bridge,
+            memory_engine=memory_engine,
+            data_dir=DATA_DIR,
+        )
+        context = await resurrector.resurrect(
+            user_id=user_id,
+            session_id=session_id,
+            project_id=project_id,
+            room_id=room_id,
+            display_name=display_name,
+        )
+        bridge_whisper = alex_bridge.jeremy_whisper(user_id=user_id, session_id=session_id)
+        return {
+            "packet": context.packet,
+            "jeremy_whisper": "\n\n".join(part for part in [bridge_whisper, context.whisper] if part),
+            "resurrection": {
+                "summary": context.summary,
+                "memory_count": context.memory_count,
+                "offline_mins": context.offline_mins,
+                "whisper": context.whisper,
+            },
+        }
+    except Exception as exc:
+        logger.warning("Alex/Jeremy resurrection failed; using entry packet fallback: %s", exc)
+        packet = alex_bridge.build_entry_packet(
+            user_id=user_id,
+            session_id=session_id,
+            project_id=project_id,
+            room_id=room_id,
+            display_name=display_name,
+            metadata=metadata,
+        )
+        return {
+            "packet": packet,
+            "jeremy_whisper": alex_bridge.jeremy_whisper(user_id=user_id, session_id=session_id),
+            "resurrection": {"fallback": True, "error": str(exc)},
+        }
 
 
 if alex_little_one_enabled():
@@ -1889,15 +1952,21 @@ async def resolve_dressing_room(request: Request, identity: Dict[str, Any] = Dep
     session_id = _bounded_text(body.get('session_id') or 'default', max_len=120)
     project_id = _bounded_text(body.get('project_id') or 'default', max_len=120)
     resolved = session_runtime.resolve_dressing_room(DATA_DIR, session_id=session_id, user_id=user_id, display_name=display_name, project_id=project_id)
-    bridge_packet = alex_bridge.build_entry_packet(
+    entry_context = await _alex_entry_context(
         user_id=user_id,
         session_id=session_id,
         project_id=project_id,
         room_id=resolved.get('dressing_room_id', 'dressing_room'),
         display_name=display_name,
         metadata=body,
-    ) if alex_bridge else None
-    return {'ok': True, **resolved, 'alex_bridge': bridge_packet, 'jeremy_whisper': alex_bridge.jeremy_whisper(user_id=user_id, session_id=session_id) if alex_bridge else ''}
+    )
+    return {
+        'ok': True,
+        **resolved,
+        'alex_bridge': entry_context['packet'],
+        'jeremy_whisper': entry_context['jeremy_whisper'],
+        'session_resurrection': entry_context['resurrection'],
+    }
 
 @app.get("/api/dressing-room/security/status")
 async def dressing_room_security_status(request: Request, project_id: str = 'default', session_id: str = 'default'):
